@@ -1,0 +1,1 @@
+export const URL_BASE="https://c8a0-2806-10a6-16-8759-6cf1-be3b-ecc5-97c5.ngrok.io/api";
