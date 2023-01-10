@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { URL_BASE } from "../../Config/URL_BASE";
 import BookCard from "../../Components/Card/BookCard";
+import Navbar from "../../Components/Navbar/Navbar";
+import "./Home.css";
 const Home = () => {
   const [data, setData] = useState({
     loading: true,
@@ -30,17 +32,24 @@ const Home = () => {
 
   return (
     <>
-      <h1>Home</h1>
-      <hr />
+      <Navbar />
       {loading ? (
         <p>Loading...</p>
       ) : (
         results.map((element) => (
-          <BookCard
-            key={element.id}
-            titulo={element.titulo}
-            imagen={element.imagen}
-          />
+          <div>
+            <div className="book">
+              <BookCard
+                key={element.id}
+                titulo={element.titulo}
+                imagen={element.imagen}
+                id={element.id}
+                materia={element.materia}
+
+
+              />
+            </div>
+          </div>
         ))
       )}
     </>

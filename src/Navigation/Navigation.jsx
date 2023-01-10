@@ -7,6 +7,7 @@ import Profile from "../Pages/Profile/Profile";
 import RecoveryPassword from "../Pages/RecoveryPassword/RecoveryPassword";
 import Register from "../Pages/Register/Register";
 import Search from "../Pages/Search/Search";
+import About from "../Pages/About/About";
 const Navigation = () => {
   return (
     <>
@@ -19,6 +20,7 @@ const Navigation = () => {
             <Route path="/detail/:id" element={<Detail/>}/>
             <Route path="/profile" element={<Profile/>}/>
             <Route path="/search" element={<Search/>}/>
+            <Route path="/about" element={<About/>}/>
             <Route path="/home" element={<Home/>}/>
     
 

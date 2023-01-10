@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { URL_BASE } from "../../Config/URL_BASE";
 import { useForm } from "../../hooks/useForm";
-import "./Login.css"
+import "./Login.css";
+import img from "../../img/ITSZ.png";
 const Login = () => {
   const [formValues, handleInputChange] = useForm({
     email: "",
@@ -65,79 +66,81 @@ const Login = () => {
 
        */}
 
-       <>
-      <div className="nav">
-        <br />
-        <h1 ><center>REPOSITORIO INSTITUCIONAL</center> </h1>
-      </div>
-      <br />
-      <br />
-      <br />
-      <div className="login-page">
-        <div className="form">
-          <form className="login-form" method="post">
-            <label htmlFor="email">Correo electronico</label>
-            <input
-              type="email"
-              placeholder="Correo"
-              name="email"
-            
-            />
-
-            <label htmlFor="password">Contraseña</label>
-            <input
-              type="password"
-              placeholder="Contraseña"
-              name="password"
-              
-            />
-
-            <Link to={"/home"} >
-              <button>Ingresar</button>
-            </Link>
-            <p className="message">
-              <a href="#">¿No tienes cuenta?</a>
-             <Link to={"/registro"}>
-            
-                <a>Registrarse</a>
-              </Link>
-              <Link to={"/Recuperar"}>
-                <p>Olvide mi contraseña</p>
-              </Link>
-
-            </p>
-          </form>
+      <>
+        <div className="nav">
+          <br />
+          <h1>Repositorio ITSZ</h1>
         </div>
-      </div>
-      <div className="footer">
-        <footer className="text-center text-white">
-          <div className="container p-4 pb-0">
-            <section className="mb-4">
-              <a
-                className="btn btn-outline-light btn-floating m-1"
-                href="https://www.facebook.com/TecNMZongolica/"
-                role="button"
-              >
-                <i className="fab fa-facebook-f">Facebook</i>
-              </a>
+        <br />
+        <br />
+        <br />
 
-              <a
-                className="btn btn-outline-light btn-floating m-1"
-                href="#!"
-                role="button"
-              >
-                <i className="fab fa-instagram">Instagram</i>
-              </a>
-            </section>
-          </div>
+        
 
-          <div className="text-center p-3">
-            © 2022 Copyright:
-            {/* <a className="text-white" href="#"></a> */}
+        <div className="login-page">
+        
+          <div className="form">
+          <div className="logo">
+                <img src={img} alt="ITSZ" style={{ width: "50%" }} />
+              </div>
+            <form onSubmit={handleSubmit}>
+              <input
+                required
+                type="email"
+                placeholder="email"
+                name="email"
+                value={email}
+                onChange={handleInputChange}
+              />
+
+              
+
+              <input
+                type="password"
+                placeholder="contraseña"
+                name="password"
+                value={password}
+                onChange={handleInputChange}
+              />
+
+              <button type="submit">Iniciar sesion</button>
+
+              <p className="message">
+                ¿No tienes cuenta?
+                <Link to={"/register"}>Registrarse</Link>
+              </p>
+            </form>
           </div>
-        </footer>
-      </div>
-    </>
+        </div>
+        <div className="footer">
+          <footer className="text-center text-white">
+            <div className="container p-4 pb-0">
+              <section className="mb-4">
+                <a
+                  className="btn btn-outline-light btn-floating m-1"
+                  href="https://www.facebook.com/TecNMZongolica/"
+                  role="button"
+                >
+                  <i className="fab fa-facebook-f">Facebook</i>
+                </a>
+
+                <a
+                  className="btn btn-outline-light btn-floating m-1"
+                  href="#!"
+                  role="button"
+                >
+                  <i className="fab fa-instagram">Instagram</i>
+                </a>
+              </section>
+            </div>
+
+            <div className="text-center p-3">
+              © 2022 Copyright:
+              <a className="text-white" href="#"></a>
+            </div>
+          </footer>
+        </div>
+      </>
     </>
   );
 };

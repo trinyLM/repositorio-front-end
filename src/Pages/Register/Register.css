@@ -1,9 +1,4 @@
-body {
-	font-family: Verdana, Geneva, sans-serif;
-	font-size: 14px;
-	background: #f2f2f2;
-  }
-  
+
   .clearfix:after {
 	content: "";
 	display: block;
@@ -13,7 +8,7 @@ body {
   }
   
   .form_wrapper {
-	background: #fff;
+	background: rgb(255, 255, 255);
 	width: 400px;
 	max-width: 100%;
 	box-sizing: border-box;
@@ -21,10 +16,10 @@ body {
 	margin: 8% auto 0;
 	position: relative;
 	z-index: 1;
-	border-top: 5px solid #f51ae3;
+	border-top: 5px solid #7b04aa;
 	-webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
 	-moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
-	box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 3px rgb(0, 0, 0);
 	-webkit-transform-origin: 50% 0%;
 	transform-origin: 50% 0%;
 	-webkit-transform: scale3d(1, 1, 1);
@@ -74,9 +69,9 @@ body {
 	position: absolute;
 	left: 0;
 	top: 0;
-	color: #333;
+	color: #8303b6;
 	height: 100%;
-	border-right: 1px solid #cccccc;
+	border-right: 1px solid #8303b6;
 	text-align: center;
 	width: 30px;
   }
@@ -90,7 +85,7 @@ body {
 	width: 100%;
 	padding: 8px 10px 9px 35px;
 	height: 35px;
-	border: 1px solid #cccccc;
+	border: 1px solid #8303b6;
 	box-sizing: border-box;
 	outline: none;
 	-webkit-transition: all 0.3s ease-in-out;
@@ -105,11 +100,11 @@ body {
 	-webkit-box-shadow: 0 0 2px 1px rgba(255, 169, 0, 0.5);
 	-moz-box-shadow: 0 0 2px 1px rgba(255, 169, 0, 0.5);
 	box-shadow: 0 0 2px 1px rgba(255, 169, 0, 0.5);
-	border: 1px solid #f5ba1a;
+	border: 1px solid #83078f;
 	background: #fafafa;
   }
   .form_wrapper input[type=submit] {
-	background: #f5ba1a;
+	background: #9408cc;
 	height: 35px;
 	line-height: 35px;
 	width: 100%;
@@ -266,10 +261,10 @@ body {
 	z-index: 1;
 	text-align: center;
 	padding: 15px;
-	color: #f5ba1a;
+	color: #000000;
   }
   .credit a {
-	color: #e1a70a;
+	color: #0851d8;
   }
   
   @-webkit-keyframes check {
@@ -404,4 +399,10 @@ body {
 	.remember_me {
 	  padding-bottom: 20px;
 	}
+
+	.logo{
+		
+		width: 80px;
+
+	} 
   }
