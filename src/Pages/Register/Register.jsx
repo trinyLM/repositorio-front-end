@@ -4,6 +4,8 @@ import { useForm } from "../../hooks/useForm";
 import { Link } from "react-router-dom";
 import "./Register.css";
 import img from "../../img/ITSZ.png";
+import Footer from "../../Components/Footer/Footer";
+import Navbar from "../../Components/Navbar/Navbar";
 const Register = () => {
   const [formValues, handleInputChange] = useForm({
     email: "",
@@ -35,7 +37,7 @@ const Register = () => {
     console.log(response);
     if (response.status === "success" && response.email === email) {
       alert("Registrado Correctamente, revisa tu correo");
-      window.location = "/login";
+      window.location = "/register/verify";
     } else {
       response.email && console.log(response.email);
       response.matricula && console.log(response.matricula);
@@ -44,6 +46,9 @@ const Register = () => {
   };
   return (
     <>
+    
+
+    <form className="main-container"> 
       {/*       <h1>Registro</h1>
       <hr />
       <br />
@@ -220,7 +225,10 @@ const Register = () => {
           </div>
         </div>
       </div>
+      </form>
+      <Footer></Footer>
     </>
+    
   );
 };
 

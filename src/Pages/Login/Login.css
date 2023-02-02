@@ -4,6 +4,7 @@
   width: 360px;
   padding: 8% 0 0;
   margin: auto;
+  margin-top: -150px;
 }
 .form {
   align-items: center;
@@ -31,7 +32,7 @@
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #453863;
+  background: #54407D;
   width: 100%;
   border: 0;
   padding: 15px;
@@ -44,7 +45,7 @@
 .form button:hover,
 .form button:active,
 .form button:focus {
-  background: #7a4780;
+  background: #453863;
 }
 .form .message {
   margin: 15px 0 0;
@@ -104,7 +105,7 @@
 .nav {
   /**position: absolute;*/
   text-align: center;
-  background-color: #7a4780;
+  background-color: #54407D;
 
   color: white;
   width: 100%;
@@ -114,11 +115,14 @@
 }
 
 .footer {
-  background-color: #7a4780;
+  background-color: #54407D;
   color: white;
   text-align: center;
+  
 }
-
+.footer:hover {
+  box-shadow: 0 8px 16px 0 #FFCC00;
+}
 .logo {
   margin-bottom: 50px;
   margin-left: -10px;

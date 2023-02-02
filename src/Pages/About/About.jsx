@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../../Components/Footer/Footer";
 import Navbar from "../../Components/Navbar/Navbar";
 
 const About = () => {
@@ -14,6 +15,28 @@ const About = () => {
         quasi hic natus fuga animi. Quia, iste cupiditate est velit impedit ad
         facere natus eum? Architecto quae delectus obcaecati dolor?
       </p>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+     
+
+      <Footer></Footer>
     </>
   );
 };

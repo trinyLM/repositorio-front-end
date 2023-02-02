@@ -3,38 +3,22 @@ import Navbar from "../../Components/Navbar/Navbar";
 import { URL_BASE } from "../../Config/URL_BASE";
 import { useForm } from "../../hooks/useForm";
 import BookCard from "../../Components/Card/BookCard";
+import "./Search.css";
+import Footer from "../../Components/Footer/Footer";
 
 const Search = () => {
   const [data, setData] = useState({
     cargado: false,
     results: [],
   });
-  const [formValues, handleInputChange] = useForm({
-    titulo: "",
-    materia: "",
-    tipo_de_publicacion: "",
-    fecha_publicacion: "",
-  });
-  const { titulo, materia, tipo_de_publicacion, fecha_publicacion } =
-    formValues;
+  const [query, setQuery] = useState("");
+  const [page, setPage] = useState(1);
 
-  const emptyValidate = () => {
-    if (
-      titulo.trim() === "" &&
-      fecha_publicacion.trim() === "" &&
-      materia.trim() === "" &&
-      tipo_de_publicacion.trim() === ""
-    ) {
-      return false;
-    }
-    return true;
-  };
   const getResults = async (e) => {
     e.preventDefault();
-
-    const url = `${URL_BASE}/archivo/?titulo=${titulo}&materia=${materia}&fecha_publicacion=${fecha_publicacion}&tipo_de_publicacion=${tipo_de_publicacion}`;
+    const url = `${URL_BASE}/archivo/?page=${page}&search=${query}`;
     const token = localStorage.getItem("token");
-    if (emptyValidate() === true) {
+    if (query.trim() !== "") {
       const request = await fetch(url, {
         method: "GET",
         headers: {
@@ -44,79 +28,60 @@ const Search = () => {
       });
       const response = await request.json();
       console.log(response);
+      if (page < response.info.pages) {
+        setPage(page + 1);
+      }
       setData({
         cargado: true,
-        results: response.results,
+        results: [results, ...response.results],
       });
-    }else{
-      alert("ingrese datos")
+    } else {
+      alert("ingrese datos");
     }
   };
   const { cargado, results } = data;
   return (
     <>
       <Navbar />
-      <h1>Busqueda</h1>
+    <div className="fondillo">
+      <div className="search">
+        <form method="Post" onSubmit={getResults}>
+          <div>
+            <input
+              type="text"
+              name="Buscar"
+              placeholder="buscar"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+            <input class="fa fa-search" type="submit" value="Buscar" />
+          </div>
+        </form>
+      </div>
 
-      <form method="post" onSubmit={getResults}>
-        
-        <div className ="titulo" />
-        <input
-          type="text"
-          name="titulo"
-          placeholder="titulo"
-          value={titulo}
-          onChange={handleInputChange}
-        
-        />
+      <br />
+      <br />
+      <div>
+        {!cargado ? (
+          <p></p>
+        ) : (
+          results.map((element) => (
+            <BookCard
+              key={element.id}
+              titulo={element.titulo}
+              imagen={element.imagen}
+              id={element.id}
+              autor={element.autor}
+            />
+          ))
+        )}
+        {cargado && <button className="button-buscar" onClick={getResults}>Ver mas resultados</button>}
+      </div>
+     
 
-          
-        <br />
-
-        <div className="materia" />
-        <input
-          type="text"
-          name="materia"
-          placeholder="materia"
-          value={materia}
-          onChange={handleInputChange}
-        />
-        <br />
-
-
-        <div className="tipo" />
-        <input
-          type="text"
-          name="tipo_de_publicacion"
-          placeholder="Tipo de publicacion"
-          value={tipo_de_publicacion}
-          onChange={handleInputChange}
-        />
-        <br />
-
-        <div className="fecha"/>
-        <input
-          type="date"
-          name="fecha_publicacion"
-          placeholder="Fecha de publicacion"
-          value={fecha_publicacion}
-          onChange={handleInputChange}
-        />
-        <br />
-        <button type="submit">Buscar</button>
-      </form>
-      {!cargado ? (
-        <p></p>
-      ) : (
-        results.map((element) => (
-          <BookCard
-            key={element.id}
-            titulo={element.titulo}
-            imagen={element.imagen}
-            id={element.id}
-          />
-        ))
-      )}
+      </div>
+           
+      <Footer></Footer>
     </>
   );
 };

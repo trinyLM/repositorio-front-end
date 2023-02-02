@@ -1,21 +1,80 @@
 .row > div{
-    background: #f2f2f2;
+    background: #f2f2f200;
     padding: 30px;
     border: 1px solid grey;
 
   }
 
-/* .book{
-
- 
+  .main-container {
+    background-image: url("../../img/fondo.jpg");
     display: flex;
-    background-color: DodgerBlue;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  .button-prev {
+    
+    border-radius: 8px;
+    border: 0;
+    width: 65px;
+    height: 25px;
+    background-color: #54407d;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-weight: bold;
+    align-items: center;
+  }  
+
+  .button-prev:hover{
+    box-shadow: 0 8px 16px 0 #FFCC00;
+    
+  }
+.button-next{
+  border-radius: 8px;
+    border: 0;
+    width: 65px;
+    height: 25px;
+    background-color: #54407d;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-weight: bold;
+    align-items: center;
 }
 
-.flex-row>div {
-    background-color: #f1f1f1;
-    margin: 10px;
-    padding: 20px;
-    font-size: 30px;
-} */
+.button-next:hover{
+
+  box-shadow: 0 8px 16px 0 #FFCC00;
+}
+
+.label-pagina{
+  border-radius: 8px;
+  border: 0;
+  width: 65px;
+  height: 25px;
+  background-color: #54407d;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-weight: bold;
+  align-items: center;
+
+}
+
+.label-pagina:hover{
+
+  box-shadow: 0 8px 16px 0 #FFCC00;
+
+}
+
+.form-pagina{
+
+  text-align: center;
+  margin: 10px 950px 10px 80px;
+  margin-left: 540px;
+  margin-right: 500px;
+  border: 1px solid black;
+  background-color: #54407d;
   
+}

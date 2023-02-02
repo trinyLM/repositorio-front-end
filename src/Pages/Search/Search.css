@@ -1,7 +1,46 @@
-.titulo{
+.bk{
+   
+}
+
+.fondillo {
+    background-image: url("../../img/fondo.jpg");
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
 
+.search input[type=text]{
+    width:300px;
+    height:25px;
+    border-radius:25px;
+    border: none;
+    text-align: center;
 
 }
+ 
+.search{
+    float:right;
+    margin:30px;
+    background-color: #54407d;
+    margin: 100px ;
+    /* margin-right: 600px; */
+    margin-left: 510px;
+
+}
+ 
+.search button{
+    background-color: #0074D9;
+    color: #f2f2f2;
+    float: right;
+    padding: 5px 10px;
+    margin-right: 16px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+}
+
 
 

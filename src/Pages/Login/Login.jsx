@@ -1,10 +1,13 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link } from "react-router-dom";
 import { URL_BASE } from "../../Config/URL_BASE";
 import { useForm } from "../../hooks/useForm";
 import "./Login.css";
 import img from "../../img/ITSZ.png";
+import Footer from "../../Components/Footer/Footer";
 const Login = () => {
+  //const [is_staff, set_is_staff] = useState(false);
+  const [counter, setCounter] = useState(1);
   const [formValues, handleInputChange] = useForm({
     email: "",
     password: "",
@@ -26,6 +29,7 @@ const Login = () => {
     if (response.email === email && response.token) {
       console.log("logedo correctamente");
       localStorage.setItem("token", response.token);
+      localStorage.setItem("is_staff", response.is_staff);
       window.location = "/home";
     } else {
       response.detail && alert(response.detail);
@@ -33,6 +37,7 @@ const Login = () => {
       response.password && alert(response.password);
       console.log("hubo un error");
     }
+    setCounter(counter+1)
   };
 
   return (
@@ -75,14 +80,11 @@ const Login = () => {
         <br />
         <br />
 
-        
-
         <div className="login-page">
-        
           <div className="form">
-          <div className="logo">
-                <img src={img} alt="ITSZ" style={{ width: "50%" }} />
-              </div>
+            <div className="logo">
+              <img src={img} alt="ITSZ" style={{ width: "50%" }} />
+            </div>
             <form onSubmit={handleSubmit}>
               <input
                 required
@@ -93,8 +95,6 @@ const Login = () => {
                 onChange={handleInputChange}
               />
 
-              
-
               <input
                 type="password"
                 placeholder="contraseña"
@@ -102,6 +102,14 @@ const Login = () => {
                 value={password}
                 onChange={handleInputChange}
               />
+              {counter >= 3 && (
+                <div>
+                  <p className="message">
+                    ¿Olvodaste tu contraseña?
+                    <Link to={"/recoverypassword/step1"}>Recuperar</Link>
+                  </p>
+                </div>
+              )}
 
               <button type="submit">Iniciar sesion</button>
 
@@ -112,34 +120,8 @@ const Login = () => {
             </form>
           </div>
         </div>
-        <div className="footer">
-          <footer className="text-center text-white">
-            <div className="container p-4 pb-0">
-              <section className="mb-4">
-                <a
-                  className="btn btn-outline-light btn-floating m-1"
-                  href="https://www.facebook.com/TecNMZongolica/"
-                  role="button"
-                >
-                  <i className="fab fa-facebook-f">Facebook</i>
-                </a>
 
-                <a
-                  className="btn btn-outline-light btn-floating m-1"
-                  href="#!"
-                  role="button"
-                >
-                  <i className="fab fa-instagram">Instagram</i>
-                </a>
-              </section>
-            </div>
-
-            <div className="text-center p-3">
-              © 2022 Copyright:
-              <a className="text-white" href="#"></a>
-            </div>
-          </footer>
-        </div>
+        <Footer></Footer>
       </>
     </>
   );
